@@ -26,42 +26,40 @@ io.on('connection', socket => {
 
     socket.join(user.room);
 
-    // General welcome
-    socket.emit('message', formatMessage("WebCage", 'Messages are limited to this room! '));
+// General welcome
+    socket.emit('message', formatMessage("WeMonk", 'Welcome, Monks! Your presence is valued for creating a peaceful environment.\n\nRegards,\nTeam WeMonk'));
 
-    // Broadcast everytime users connects
+// Broadcast everytime users connects
     socket.broadcast
       .to(user.room)
       .emit(
         'message',
-        formatMessage("WebCage", `${user.username} has joined the room`)
+        formatMessage("WeMonk", `${user.username} has joined the room`)
       );
-
-    // Current active users and room name
+// Current active users and room name
     io.to(user.room).emit('roomUsers', {
       room: user.room,
       users: getIndividualRoomUsers(user.room)
     });
   });
-
-  // Listen for client message
+// Listen for client message
   socket.on('chatMessage', msg => {
     const user = getActiveUser(socket.id);
 
     io.to(user.room).emit('message', formatMessage(user.username, msg));
   });
 
-  // Runs when client disconnects
+// Runs when client disconnects
   socket.on('disconnect', () => {
     const user = exitRoom(socket.id);
 
     if (user) {
       io.to(user.room).emit(
         'message',
-        formatMessage("WebCage", `${user.username} has left the room`)
+        formatMessage("WeMonk", `${user.username} has left the room`)
       );
 
-      // Current active users and room name
+// Current active users and room name
       io.to(user.room).emit('roomUsers', {
         room: user.room,
         users: getIndividualRoomUsers(user.room)

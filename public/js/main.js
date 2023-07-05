@@ -22,15 +22,15 @@ socket.on('roomUsers', ({ room, users }) => {
 socket.on('message', (message) => {
     outputMessage(message);
   
-    // Scroll down
+// Scroll down
     chatMessages.scrollTop = chatMessages.scrollHeight;
   });
 
-  // Message submit
+// Message submit
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
   
-    // Get message text
+// Get message text
     let msg = e.target.elements.msg.value;
     msg = msg.trim();
   
@@ -38,10 +38,10 @@ chatForm.addEventListener('submit', (e) => {
       return false;
     }
   
-    // Emit message to server
+// Emit message to server
     socket.emit('chatMessage', msg);
   
-    // Clear input
+// Clear input
     e.target.elements.msg.value = '';
     e.target.elements.msg.focus();
   });
@@ -65,12 +65,11 @@ function outputMessage(message) {
     document.querySelector('.chat-messages').appendChild(div);
   }
 
-  // Add room name to DOM
+// Add room name to DOM
 function outputRoomName(room) {
     roomName.innerText = room;
   }
-
-  // Add users to DOM
+// Add users to DOM
 function outputUsers(users) {
     userList.innerHTML = '';
     users.forEach((user) => {
@@ -79,8 +78,7 @@ function outputUsers(users) {
       userList.appendChild(li);
     });
   }
-
-  //Prompt the user before leave chat room
+//Prompt the user before leave chat room
 document.getElementById('leave-btn').addEventListener('click', () => {
     const leaveRoom = confirm('Are you sure you want to leave the chatroom?');
   
