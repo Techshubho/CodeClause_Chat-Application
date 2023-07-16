@@ -1,4 +1,3 @@
-// helper/formatDate.js
 const { DateTime } = require('luxon');
 
 function formatMessage(username, text) {
