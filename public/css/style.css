@@ -31,14 +31,14 @@ ul {
 	list-style: none;
 }
 .logo {
-	width: 70px; /* Set the desired width for the logo */
-	height: 70px; /* Set the desired height for the logo */
-	margin-bottom: 10px; /* Add margin-bottom to create space between the logo and heading */
+	width: 70px; 
+	height: 70px; 
+	margin-bottom: 10px; 
   }
   
 .logo img {
-	width: 100%; /* Make sure the logo image fills the container */
-	height: 100%; /* Make sure the logo image fills the container */
+	width: 100%; 
+	height: 100%; 
   }
   
 .we-monk {
