@@ -1,11 +1,8 @@
-
-// helper/userHelper.js
-
 const users = [];
 
 // Join user to chat
 function newUser(id, username, room) {
-  const user = { id, username, room };
+  const user = { id, username, room , online: true  };
 
   users.push(user);
 

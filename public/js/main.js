@@ -70,16 +70,29 @@ function outputMessage(message) {
 function outputRoomName(room) {
     roomName.innerText = room;
   }
-// Add users to DOM---------------------------------------------------------------------------------
 
+// Output users to DOM with online indicator---------------------------------------------------------------
 function outputUsers(users) {
-    userList.innerHTML = '';
-    users.forEach((user) => {
-      const li = document.createElement('li');
-      li.innerText = user.username;
-      userList.appendChild(li);
-    });
-  }
+  userList.innerHTML = '';
+  users.forEach((user) => {
+    const li = document.createElement('li');
+    li.innerText = user.username;
+  
+    // Check if the user is online and add the online indicator----------------------------------------------
+    if (user.id === socket.id) {
+      li.innerHTML += ' (You)'; // Optionally, indicate that it's the current user
+    }
+
+    if (user.online) {
+      const onlineIndicator = document.createElement('span');
+      onlineIndicator.classList.add('online-indicator');
+      li.appendChild(onlineIndicator);
+    }
+  
+    userList.appendChild(li);
+  });
+}
+
 //Conformation, the user before leave chat room------------------------------------------------------
 
 document.getElementById('leave-btn').addEventListener('click', () => {

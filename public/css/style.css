@@ -2,7 +2,7 @@
 
 :root {
 	--dark-color-a:linear-gradient(to bottom, #e56e94  0%, #753a88 100%);;
-	--dark-color-b: #272728;
+	--dark-color-b: #000000;
 	--light-color: #13110f;
 	--success-color: #65ce65;
 	--error-color: #d58986;
@@ -98,6 +98,7 @@ a {
 	background: rgba(0, 0, 0, 0.1);
 	padding: 10px;
 	margin-bottom: 20px;
+	margin-left: 40px;
 }
 
 .chat-sidebar h3 {
@@ -106,8 +107,7 @@ a {
 
 .chat-sidebar ul li {
 	padding: 10px 0;
-    border-top: .7px solid;
-    border-bottom: .7px solid;
+    text-align: center;
 }
 
 .chat-sidebar::-webkit-scrollbar {
@@ -203,10 +203,26 @@ i.fas.fa-paper-plane{
 h3 {
 	color: hsl(120, 100%, 45%);
 	text-shadow: #fff;
+	margin-left: 1px;
+	text-decoration: underline;
+	text-align: center;
+
 }
 h2 {
 	color: red;
 }
+
+
+.online-indicator {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background-color: rgb(13, 240, 13);
+	border-radius: 50%;
+	margin-left: 8px;
+  }
+  
+  
 /* IndexPage-------------------------------------------------------------------- */
 
 .join-container {
